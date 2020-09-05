@@ -11,8 +11,12 @@ Implementation is done in python using matplotlib, numPy and sciPy. Unit testing
 
 **Data Imputation**
 
-We use a Brownian bridge imputation method to estimate missing returns as presented by Durham and Gallant [1]. For trading days with missing returns data, we assume at that time that the index with missing data will follow a geometric Brownian motion. This allows us to use the Brownian bridge impu- tation algorithm. Let the i(th) day be represented using t(i), and let t(0) < t(1) < t(2). Suppose we are missing the return x(1) that occurred on day t(1), however we have the recorded returns x(0) for day t(0), and x(2) for day t(2). We estimate all of the missing returns by drawing x(1) values from a normal distribution with the following attributes:
+We use a Brownian bridge imputation method to estimate missing returns as presented by Durham and Gallant [1]. For trading days with missing returns data, we make the assumption that the index with missing data will follow a geometric Brownian motion at that time. This allows us to use the Brownian bridge imputation algorithm: 
+
+Let the i(th) day be represented using t(i), and let t(0) < t(1) < t(2). Suppose we are missing the return x(1) that occurred on day t(1), however we have the recorded returns x(0) for day t(0), and x(2) for day t(2). We estimate all of the missing returns by drawing x(1) values from a *normal distribution* with the following attributes:
+
 mean = x(0) + (x(2) - x(0)) / (t(2) - t(0)) * (t(1) - t(0))
+
 standard deviation = sigma ^ 2 * (t(1) - t(0)), where sigma represents the annualized volatility from that year.  
 
 **Portfolio Assessment**
