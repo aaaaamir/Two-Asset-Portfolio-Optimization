@@ -10,11 +10,13 @@ Implementation is done in python using matplotlib, numPy and sciPy. Unit testing
 ## Details of Implementation:
 
 **Data Imputation**
+
 We use a Brownian bridge imputation method to estimate missing returns as presented by Durham and Gallant [1]. For trading days with missing returns data, we assume at that time that the index with missing data will follow a geometric Brownian motion. This allows us to use the Brownian bridge impu- tation algorithm. Let the i(th) day be represented using t(i), and let t(0) < t(1) < t(2). Suppose we are missing the return x(1) that occurred on day t(1), however we have the recorded returns x(0) for day t(0), and x(2) for day t(2). We estimate all of the missing returns by drawing x(1) values from a normal distribution with the following attributes:
 mean = x(0) + (x(2) - x(0)) / (t(2) - t(0)) * (t(1) - t(0))
 standard deviation = sigma ^ 2 * (t(1) - t(0)), where sigma represents the annualized volatility from that year.  
 
 **Portfolio Assessment**
+
 To optimize the portfolio, we first gather testing sets by doing bootstrap re-sampling on our original index datasets; This is done to create 1000 testing datasets, each spanning 30 days of returns. We then use the bootstrap samples to assess the performance of any given portfolio and trading strategy. The bootstrapping is done to add systematic, controlled randomness into our testing, and to have a larger pool of data to test the strategies on. We use the stationary block bootstrap re-sampling method, which is a method presented by Andrew Patton, Dimitris N Politis, and Halbert White in their article "Correction to “Automatic block-length selection for the dependent bootstrap" [2].
 
 *Protocol to get the Bootstrap Samples for Testing:*
