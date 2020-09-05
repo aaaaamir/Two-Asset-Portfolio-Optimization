@@ -1,6 +1,6 @@
 # Two-Asset-Portfolio-Optimization
 
-Portfolio optimization tool for use on two assets -- Calculates summary statistics for inputted data including annualized return and volatility and generates histograms of returns given daily historical returns data for either asset. Also imputes (estimates) missing data points for any daily return value from either asset not found in the given data using a Brownian bridge. Once dataset is finished collection, optimizer will conpute and find print results for four static trading strategies:
+Portfolio optimization tool for use on two assets -- Calculates summary statistics for inputted data including annualized return and volatility and generates histograms of returns given daily historical returns data for either asset. Also imputes (estimates) missing data points for any daily return value from either asset not found in the given data using a Brownian bridge time series estimation method [1]. Once dataset is finished collection, optimizer will conpute and find print results for four static trading strategies:
 - All-in-one full investment into the either index with no trading (2 possible portfolios doing this)
 - 50% proportion of wealth invested into each index, with daily portfolio rebalancing
 - Division of wealth in each index defined by choosing proportions that will maximize the estimated annual Sharpe ratio, with daily portfolio rebalancing
