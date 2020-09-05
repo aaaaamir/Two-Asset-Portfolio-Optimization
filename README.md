@@ -8,7 +8,9 @@ Portfolio optimization tool for use on two assets -- Calculates summary statisti
 
 Implementation is done in python using matplotlib, numPy and sciPy. Unit testing files not included in the repo.
 
-## Details of Implementation:
+**Note:** The original analysis was done on a put option index and a trend following index, however this code can be easily generalized to fit any two assets. Just change the constants containing the filename of two datasets you intend on using. You can also rename the functions to correspond to two general assets as opposed to a put and trend index respectively, for easier readability if you'd like. I can commit to this process if there is any interest in these modifications!
+
+## More Details of Implementation:
 
 **Data Imputation**
 
@@ -31,8 +33,6 @@ To make each bootstrap sample best represent the distribution of historical retu
 *Strategy Evaluation Procedure*
 We record each trading strategy’s overall performance by gathering daily returns for the strategy over the bootstrap testing set, then calculating an estimate of the annualized sample mean and annualized sample volatility. We also estimate the daily 95% CVaR of daily returns for each strategy to get a view of the downside risk. Each of the statistics are gathered by taking an arithmetic mean of estimates over each sampled bootstrap test set.
 The Sequential Least Squares Programming algorithm from the Python library sciPy was used to solve the optimization problem of maximizing the Sharpe ratio between the two assets.
-
-**Note:** The original analysis was done on a put option index and a trend following index, however this code can be easily generalized to fit any two assets. Just change the constants containing the filename of two datasets you intend on using. You can also rename the functions to correspond to two general assets as opposed to a put and trend index respectively, for easier readability if you'd like. I can commit to this process if there is any interest in these modifications!
 
 References:
 [1] -- Garland  B  Durham  and  A  Ronald  Gallant.  “Numerical  techniques  formaximum likelihood estimation of continuous-time diffusion processes”. In:Journal of Business & Economic Statistics20.3 (2002), pp. 297–338.
