@@ -1,6 +1,7 @@
 # Two-Asset-Portfolio-Optimization
 
-Portfolio optimization tool for use on two assets -- Calculates summary statistics for inputted data including annualized return and volatility and generates histograms of returns given daily historical returns data for either asset. Also imputes (estimates) missing data points for any daily return value from either asset not found in the given data using a Brownian bridge time series estimation method [1]. Once dataset is finished collection, optimizer computes and prints results for four static trading strategies:
+Portfolio optimization tool for use on two assets -- Calculates summary statistics for inputted data including annualized return and volatility and generates histograms of returns given daily historical returns data for either asset. Also imputes (estimates) missing data points for any daily return value from either asset not found in the given data using a Brownian bridge time series estimation method [1]. Once dataset is finished collection, bootstrap re-sampling from the historical datasets is done to make a testing set for trading strategy assessment. This is a neccessary move since directly re-sampling data prevents us from having to make assumptions about the stochastic process that either asset follows. The bootstrapping is done in a way to ensure the distribution of returns in the testing sets will match those of the historical sets, by utilizing sampling method by Patton et. al [2]. Once the test sets are ready for use, the optimizer computes and prints performance results including estimations of 95% CVaR (a risk measure), monthly return and monthly volatility for four static trading strategies:
+
 - All-in-one full investment into the either index with no trading (2 possible portfolios doing this)
 - 50% proportion of wealth invested into each index, with daily portfolio rebalancing
 - Division of wealth in each index defined by choosing proportions that will maximize the estimated annual Sharpe ratio, with daily portfolio rebalancing
@@ -35,4 +36,4 @@ The Sequential Least Squares Programming algorithm from the Python library sciPy
 
 References:
 [1] -- Garland  B  Durham  and  A  Ronald  Gallant.  “Numerical  techniques  formaximum likelihood estimation of continuous-time diffusion processes”. In:Journal of Business & Economic Statistics20.3 (2002), pp. 297–338.
-[2] -- Andrew Patton, Dimitris N Politis, and Halbert White. “Correction to “Au- tomatic block-length selection for the dependent bootstrap” by D. Politis and H. White”. In: Econometric Reviews 28.4 (2009), pp. 372–375.
+[2] -- Andrew  , Dimitris N Politis, and Halbert White. “Correction to “Automatic block-length selection for the dependent bootstrap” by D. Politis and H. White”. In: Econometric Reviews 28.4 (2009), pp. 372–375.
